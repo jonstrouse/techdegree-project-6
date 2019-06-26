@@ -55,6 +55,10 @@ button {
   transition: var(--transition);
 }
 
+a {
+  cursor: pointer;
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
@@ -149,12 +153,11 @@ button {
 
 .start a {
   color: var(--color-win);
-  cursor: pointer;
 }
 
 .win {
   background-color: var(--color-win);
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 .win a {
