@@ -70,6 +70,7 @@ function resetGame() {
       phraseUL.innerHTML = '';
       for ( let i = 0; i < keyButton.length; i ++ ) {
         keyButton[i].className = '';
+        keyButton[i].disabled = false;
       }
       for ( let i = 0; i < score.children.length; i ++ ) {
         score.children[i].style.display = '';
@@ -103,6 +104,26 @@ function checkWin() {
     resetGame();
   }
 };
+
+//Listen for button clicks ... initiate 'checkLetter' & 'checkWin' functions each time
+qwerty.addEventListener('click', (event) => {
+    letterFound = null;
+    const letterChoice = event.target.textContent;
+    checkLetter(letterChoice);
+    if ( letterFound === null ) {
+      //Remove life & increase count of missed variable
+      score.children[missed].style.display = 'none';
+      missed += 1;
+    };
+    //Reveal matching letters and disable from selecting again
+    for ( var i = 0; i < keyButton.length; i ++ ) {
+      if ( keyButton[i].textContent === event.target.textContent ) {
+        keyButton[i].className = 'chosen';
+        keyButton[i].disabled = true;
+    }
+    }
+    checkWin();
+  });
 
 //Listen for keyboard ... initiate 'checkLetter' & 'checkWin' functions each time
 document.addEventListener('keyup', (event) => {
