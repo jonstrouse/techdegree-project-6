@@ -82,20 +82,23 @@ button {
   height: 65px;
   width: 65px;
   padding: 20px 1px 0 1px;
-  margin-right: 2px;
+  margin: 0 5px 10px 0;
   color: transparent;
   background: var(--color-neutral-light);
   border-radius: 5px;
 }
 
 .space {
-  width: 15px;
+  width: 20px;
 }
 
 .show {
   color: #000;
   background-color: #76CE82;
+  transition: .4s;
+  transform: scale(1.05);
 }
+
 
 /* Keyboard */
 
@@ -144,10 +147,12 @@ button {
 
 .start a {
   color: var(--color-win);
+  cursor: pointer;
 }
 
 .win {
   background-color: var(--color-win);
+  opacity: 0.9;
 }
 
 .win a {
@@ -156,6 +161,7 @@ button {
 
 .lose {
   background-color: var(--color-lose);
+  opacity: 0.9;
 }
 
 .lose a {
