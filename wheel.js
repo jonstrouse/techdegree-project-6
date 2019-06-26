@@ -55,7 +55,7 @@ function checkLetter(button) {
   for (let i = 0; i < letters.length; i ++) {
     let letter = letters[i].textContent.toLowerCase();
     if ( letter === button.toLowerCase() ) {
-      letters[i].className = 'letter show animation';
+      letters[i].className = 'letter show';
       correctGuess = letter;
       letterFound = correctGuess;
     }
