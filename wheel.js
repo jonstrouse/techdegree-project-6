@@ -55,7 +55,7 @@ function checkLetter(button) {
   for (let i = 0; i < letters.length; i ++) {
     let letter = letters[i].textContent.toLowerCase();
     if ( letter === button.toLowerCase() ) {
-      letters[i].className = 'letter show';
+      letters[i].className = 'letter show animation';
       correctGuess = letter;
       letterFound = correctGuess;
     }
@@ -93,7 +93,7 @@ function checkWin() {
     gameReset.style.display = '';
     gameReset.className = 'win';
     title.textContent = 'YOU WON!!';
-    resetButton.textContent = 'Try Again';
+    resetButton.textContent = 'Play Again';
     resetGame();
   } else if ( missed === 5 ) {
     gameReset.style.display = '';
