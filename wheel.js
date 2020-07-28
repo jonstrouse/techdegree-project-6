@@ -1,9 +1,14 @@
 const phrases = [
-  'Front End Web Developer',
-  'JavaScript is the future',
-  'Writing code is fun',
-  'I love designing websites',
-  'Career Change or Bust'
+  'This is the way',
+  'To infinity and beyond',
+  'May the force be with you',
+  'Go ahead make my day',
+  "Ill be back",
+	'Houston we have a problem',
+	"You cant handle the truth",
+	"Theres no place like home",
+	'You had me at hello',
+	"Do or do not There is no try"
 ];
 
 const qwerty = document.getElementById('qwerty');
@@ -108,21 +113,23 @@ function checkWin() {
 //Listen for button clicks ... initiate 'checkLetter' & 'checkWin' functions each time
 qwerty.addEventListener('click', (event) => {
     letterFound = null;
-    const letterChoice = event.target.textContent;
-    checkLetter(letterChoice);
-    if ( letterFound === null ) {
-      //Remove life & increase count of missed variable
-      score.children[missed].style.display = 'none';
-      missed += 1;
-    };
-    //Reveal matching letters and disable from selecting again
-    for ( var i = 0; i < keyButton.length; i ++ ) {
-      if ( keyButton[i].textContent === event.target.textContent ) {
-        keyButton[i].className = 'chosen';
-        keyButton[i].disabled = true;
-    }
-    }
-    checkWin();
+	if (event.target.tagName === "BUTTON") {
+		const letterChoice = event.target.textContent;
+		checkLetter(letterChoice);
+		if ( letterFound === null ) {
+		  //Remove life & increase count of missed variable
+		  score.children[missed].style.display = 'none';
+		  missed += 1;
+		};
+		//Reveal matching letters and disable from selecting again
+		for ( var i = 0; i < keyButton.length; i ++ ) {
+		  if ( keyButton[i].textContent === event.target.textContent ) {
+			keyButton[i].className = 'chosen';
+			keyButton[i].disabled = true;
+		}
+		}
+		checkWin();
+	}
   });
 
 //Listen for keyboard ... initiate 'checkLetter' & 'checkWin' functions each time
